@@ -3,3 +3,8 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+.alert {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}

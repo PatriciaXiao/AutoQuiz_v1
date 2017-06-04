@@ -1,5 +1,6 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	 render_template, flash
+from python_lib.database.sqliteDB import hello_db
 
 app = Flask(__name__)
 app.config.from_object(__name__) # load config from this file, auto_quiz.py
@@ -12,8 +13,17 @@ def entry():
 @app.route('/welcome', methods=['POST', 'GET'])
 @app.route('/welcome/', methods=['POST', 'GET'])
 def welcome():
-    return render_template('welcome_page.html')
+	login_error = True
+	logged_in = False
+	return render_template('welcome_page.html', \
+		logged_in=logged_in, \
+		login_error=login_error)
 
+@app.teardown_appcontext
+def wrap_up(error):
+	print "close application"
+	hello_db()
+	# close database
 
 if __name__ == '__main__':
 	app.run()
