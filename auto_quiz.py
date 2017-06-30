@@ -15,7 +15,7 @@ def entry():
 def welcome():
 	login_error = True
 	logged_in = False
-	return render_template('welcome_page.html', \
+	return render_template('/welcome/welcome_page.html', \
 		logged_in=logged_in, \
 		login_error=login_error)
 
