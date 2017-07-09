@@ -44,29 +44,29 @@
           </button>
           <a class="navbar-brand" href="#">Project name</a>
         </div>
-        {% if logged_in %}
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text">Welcome, XXX</p></li>
-            <li>
-              <form class="navbar-form navbar-right" method=post action={{url_for('welcome')}}>
-                <button type="submit" class="btn btn-success">Log Out</button>
-              </form>
-            </li>
-          </ul>
-        </div>
-        {% else %}
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" method=post action={{url_for('welcome')}}>
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+        {% if session.logged_in %}
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><p class="navbar-text">Welcome, {{user_info.name}}</p></li>
+              <li>
+                <form class="navbar-form navbar-right" method=post action={{url_for('welcome')}}>
+                  <button type="submit" class="btn btn-success" name="button" value="log_out">Log Out</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          {% else %}
+          <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" method=post action={{url_for('welcome')}}>
+              <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success" name="button" value="log_in">Log in</button>
+            </form>
+          </div><!--/.navbar-collapse -->
         {% endif %}
       </div>
     </nav>
@@ -83,9 +83,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <h1>Beauty &amp; Joy of CS Exercise</h1>
+        <p>This is a website aiming at training students to achieve better understanding of CS basic concepts, especially for those who have taken our CS10 course, <I>the Beauty &amp; Joy of Computing</I>.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Enter &raquo;</a></p>
       </div>
     </div>
 
@@ -112,7 +112,7 @@
       <hr>
 
       <footer>
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2017 EECS, U.C. Berkeley</p>
       </footer>
     </div> <!-- /container -->
 
