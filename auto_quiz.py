@@ -1,8 +1,7 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
-
-from python_lib.database.sqliteDB import hello_db
+from python_lib.database.sqliteDB import sqlite3DB, hello_db
 
 app = Flask(__name__)
 app.config.from_object(__name__) # load config from this file, auto_quiz.py
@@ -18,15 +17,30 @@ def entry():
 @app.route('/welcome/', methods=['POST', 'GET'])
 def welcome():
     if request.method == 'POST':
-        print "button: '" + request.form['button'] + "'"
-    login_error = True
-    session['logged_in'] = True
-    user_info = {
-        "name": "Patricia",
-        "student id": "24965096"
-    }
+        # print "button: '" + request.form['button'] + "'"
+        if request.form['button'] == 'log_in':
+            print "log in"
+            '''
+            login_error = True
+            session['logged_in'] = not login_error
+            session['user_info'] = {
+                "name": "Patricia",
+                "student id": "24965096"
+            }
+            '''
+            db = sqlite3DB("my folder", "hello world")
+            login_error, user_info = db.is_valid_user(request.form['email'], request.form['password'])
+            session['logged_in'] = not login_error
+            session['user_info'] = user_info
+        elif request.form['button'] == 'log_out':
+            print "log out"
+            login_error = False
+            session['logged_in'] = False
+    else:
+        login_error = False
+        session['logged_in'] = False
     return render_template('/welcome/welcome_page.html', \
-        login_error=login_error, user_info = user_info)
+        login_error=login_error)
 
 @app.before_request
 def before_request():
