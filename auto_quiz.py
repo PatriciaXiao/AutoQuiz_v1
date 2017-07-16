@@ -42,6 +42,22 @@ def welcome():
     return render_template('/welcome/welcome_page.html', \
         login_error=login_error)
 
+@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login/', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        return redirect(url_for('start'))
+    return render_template('/signin/login.html')
+
+@app.route('/dashboard', methods=['POST', 'GET'])
+@app.route('/dashboard/', methods=['POST', 'GET'])
+def start():
+    return render_template('/start/dashboard.html')
+
+@app.route('/section/data_structure', methods=['POST', 'GET'])
+def section_datastruct():
+    return render_template('/start/section.html', section_name='Data Structure')
+
 @app.before_request
 def before_request():
     session.permanent = True

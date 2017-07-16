@@ -34,7 +34,8 @@
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <!--div class="container"-->
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -84,8 +85,12 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Beauty &amp; Joy of CS Exercise</h1>
-        <p>This is a website aiming at training students to achieve better understanding of CS basic concepts, especially for those who have taken our CS10 course, <I>the Beauty &amp; Joy of Computing</I>.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Enter &raquo;</a></p>
+        <p>This is a website aiming at training students to achieve better understanding of CS basic concepts, especially for those who have taken our CS10 course, <I>the Beauty &amp; Joy of Computing</I>. Hope you enjoy playing with these exercises.</p>
+        {% if session.logged_in %}
+        <p><a class="btn btn-primary btn-lg" href="{{url_for('start')}}" role="button">Start Exercise &raquo;</a></p>
+        {% else %}
+        <p><a class="btn btn-primary btn-lg" href="{{url_for('login')}}" role="button">Start Exercise &raquo;</a></p>
+        {% endif %}
       </div>
     </div>
 
