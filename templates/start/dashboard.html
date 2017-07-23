@@ -61,8 +61,8 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
+            <li class="active"><a href="#main_entrances">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#detailed_reports">Reports</a></li>
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
@@ -79,37 +79,37 @@
             <li><a href="">Another nav item</a></li>
           </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="main_entrances">
           <h1 class="page-header">Dashboard</h1>
 
           <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 placeholder">
               <a href="{{url_for('section_datastruct')}}">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Data Structure</h4>
               <span class="text-muted">Something else</span>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 placeholder">
               <a href="http://cs10.org/sp17/">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Algorithm</h4>
               <span class="text-muted">Something else</span>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Programming</h4>
               <span class="text-muted">Something else</span>
             </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>System</h4>
               <span class="text-muted">Something else</span>
             </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header" id="detailed_reports">Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
