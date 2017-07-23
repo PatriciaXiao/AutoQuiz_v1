@@ -59,7 +59,7 @@ def section_datastruct():
     session['section_name'] = "datastruct"
     return render_template('/start/section.html', section_name='Data Structure')
 
-@app.route('/section/data_structure/exercise', methods=['POST', 'GET'])
+@app.route('/exercise/data_structure', methods=['POST', 'GET'])
 def exercise_datastruct():
     return render_template('/start/section.html', section_name='Data Structure Exercise')
 

@@ -58,6 +58,7 @@
     </nav>
 
         <!-- 模态框（Modal） -->
+    <form method=post action={{url_for('exercise_datastruct')}} id="exercise_entry" name="exercise_entry">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -68,7 +69,7 @@
               Entering Exercise Page
             </h4>
           </div>
-          <form method=post action={{url_for('exercise_datastruct')}}>
+          
           <div class="modal-body" id="modal_content" name=content>
             Modal Content
           </div>
@@ -76,14 +77,15 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">
               Cancel
             </button>
-            <button type="button" class="btn btn-primary" type="submit">
+            <button type="button" class="btn btn-primary" type="submit" onclick="enter_exercise();">
               Start
             </button>
           </div>
-          </form>
+          
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    </form>
 
     <div class="container-fluid" id = "main_container">
       <div class="row">
@@ -135,6 +137,10 @@
       function triggle_modal() {
         // triggle the modal
         $('#myModal').modal('toggle');
+      }
+      function enter_exercise() {
+        var form = document.getElementById('exercise_entry');
+        form.submit();
       }
     </script>
     <!-- my eCharts -->
