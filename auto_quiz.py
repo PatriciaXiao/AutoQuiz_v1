@@ -61,7 +61,11 @@ def section_datastruct():
 
 @app.route('/exercise/data_structure', methods=['POST', 'GET'])
 def exercise_datastruct():
-    return render_template('/start/section.html', section_name='Data Structure Exercise')
+    return render_template('/start/question.html', section_name='Data Structure Exercise')
+
+@app.route('/exercise/data_structure/answer', methods=['POST', 'GET'])
+def answer_datastruct():
+    return render_template('/start/answer.html', section_name='Data Structure Exercise')
 
 @app.before_request
 def before_request():
